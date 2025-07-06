@@ -58,7 +58,7 @@ O sistema segue uma estrutura baseada em **camadas**, facilitando a manutenção
 
 ## 👨‍💻 Autores
 
-| [<img src="https://avatars.githubusercontent.com/u/80902181?v=4" width="100px;" /><br /><sub><b>Kayo Weiber</b></sub>](https://github.com/kayoweiber) | [<img src="https://avatars.githubusercontent.com/u/10137?v=4" width="100px;" /><br /><sub><b>John Weslley</b></sub>](https://github.com/JohnWeslley01) |
+| [<img src="https://github.com/kayoweiber.png" width="100px;" /><br /><sub><b>Kayo Weiber</b></sub>](https://github.com/kayoweiber) | [<img src="https://github.com/JohnWeslley01.png" width="100px;" /><br /><sub><b>John Weslley</b></sub>](https://github.com/JohnWeslley01) |
 | :---: | :---: |
 
 **Grupo 5 – Programação 1**
