@@ -2,53 +2,63 @@
 
 > **Status:** Em Desenvolvimento 🚧
 
+## 🏫 Informações Acadêmicas
+
+Este projeto foi desenvolvido como **trabalho da disciplina "Programação 1"** no ano de 2025, ministrada pelo **professor Dr. Sérgio Carlos Portari Júnior**, do curso de **Sistemas de Informação** da **Universidade do Estado de Minas Gerais (UEMG) - Unidade Frutal**.
+
+O objetivo da atividade é aplicar os conceitos fundamentais de programação orientada a objetos em C#, com ênfase em persistência de dados e separação de responsabilidades.
+
+---
+
 ## 📝 Descrição
 
-Este projeto é uma aplicação de console desenvolvida em C# como parte de um trabalho acadêmico. O objetivo é criar um sistema de CRUD (Criar, Ler, Atualizar, Deletar) completo para gerenciar o acervo de filmes de uma locadora , utilizando o MySQL como banco de dados para a persistência das informações.
+Este projeto é uma aplicação de console desenvolvida em **C#**, com foco em simular um sistema de **CRUD** (Criar, Ler, Atualizar e Deletar) para o gerenciamento de filmes em uma locadora. As informações são armazenadas em um banco de dados **MySQL**, permitindo persistência e consulta estruturada dos dados.
 
 ---
 
 ## ✨ Funcionalidades
 
--   **Gerenciamento de Filmes:**
-    -   [✔️] Incluir novos filmes no acervo.
-    -   [✔️] Alterar informações de filmes existentes.
-    -   [✔️] Excluir filmes do catálogo.
-    -   [✔️] Listar todos os filmes cadastrados.
--   **Busca e Filtros:**
-    -   [✔️] Pesquisar filmes por Título, Gênero, Ano de Lançamento e Classificação Indicativa.
--   **Relatórios:**
-    -   [✔️] Gerar um relatório com todos os filmes ordenados por título.
-    -   [✔️] Gerar um relatório de filmes filtrados por gênero.
+- **Gerenciamento de Filmes:**
+  - [✔️] Incluir novos filmes no acervo.
+  - [✔️] Alterar informações de filmes existentes.
+  - [✔️] Excluir filmes do catálogo.
+  - [✔️] Listar todos os filmes cadastrados.
+
+- **Busca e Filtros:**
+  - [✔️] Pesquisar filmes por Título, Gênero, Ano de Lançamento e Classificação Indicativa.
+
+- **Relatórios:**
+  - [✔️] Gerar um relatório com todos os filmes ordenados por título.
+  - [✔️] Gerar um relatório de filmes filtrados por gênero.
 
 ---
 
 ## 🛠️ Tecnologias Utilizadas
 
-As seguintes tecnologias foram utilizadas no desenvolvimento do projeto:
+As seguintes tecnologias e ferramentas foram utilizadas no desenvolvimento do projeto:
 
--   **Linguagem:** C# 
--   **Plataforma:** .NET Console
--   **Banco de Dados:** MySQL 
--   **Gerenciador de Pacotes:** NuGet
-    -   `MySql.Data`
+- **Linguagem:** C#
+- **Plataforma:** .NET Console Application
+- **Banco de Dados:** MySQL
+- **Gerenciador de Pacotes:** NuGet
+  - `MySql.Data`
 
 ---
 
-## 🏛️ Arquitetura
+## 🧱 Arquitetura do Projeto
 
-O sistema foi projetado utilizando uma arquitetura em camadas para separar as responsabilidades e promover um código mais limpo e de fácil manutenção:
+O sistema segue uma estrutura baseada em **camadas**, facilitando a manutenção e compreensão do código:
 
--   **Apresentação (View):** Interface de usuário via console.
--   **Controle (Controller):** Camada que orquestra o fluxo, aplica validações e regras de negócio.
--   **Acesso a Dados (DAO):** Camada responsável pela comunicação direta com o banco de dados MySQL, encapsulando todos os comandos SQL.
--   **Modelo (Model):** Classes que representam as entidades do sistema.
+- **Model (Modelo):** Representa as entidades do sistema (como Filme).
+- **DAO (Data Access Object):** Responsável por todas as operações no banco de dados.
+- **Controller:** Realiza a lógica de negócios e orquestra a comunicação entre as camadas.
+- **View (Apresentação):** Interface via terminal, interagindo com o usuário por meio de menus e mensagens.
 
 ---
 
 ## 👨‍💻 Autores
 
-| [<img src="https://avatars.githubusercontent.com/u/80902181?v=4" width="100px;"/><br /><sub><b>Kayo</b></sub>](https://github.com/kayoweiber)<br /> | [<img src="https://avatars.githubusercontent.com/u/10137?v=4" width="100px;"/><br /><sub><b>John</b></sub>](https://github.com/JohnWeslley01)<br /> |
+| [<img src="https://avatars.githubusercontent.com/u/80902181?v=4" width="100px;" /><br /><sub><b>Kayo Weiber</b></sub>](https://github.com/kayoweiber) | [<img src="https://avatars.githubusercontent.com/u/10137?v=4" width="100px;" /><br /><sub><b>John Weslley</b></sub>](https://github.com/JohnWeslley01) |
 | :---: | :---: |
 
-**Grupo 5** 
+**Grupo 5 – Programação 1**
