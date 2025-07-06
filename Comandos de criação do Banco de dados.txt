@@ -1,0 +1,14 @@
+CREATE DATABASE IF NOT EXISTS db_locadora;
+USE db_locadora;
+CREATE TABLE IF NOT EXISTS filmes (
+id INT AUTO_INCREMENT PRIMARY KEY,
+titulo VARCHAR(255) NOT NULL,
+diretor VARCHAR(150) NOT NULL,
+genero VARCHAR(100) NOT NULL,
+ano_lancamento INT NOT NULL,
+classificacao_indicativa VARCHAR(50) NOT NULL,
+duracao_minutos INT NOT NULL,
+CONSTRAINT chk_ano_lancamento CHECK (ano_lancamento > 1895)
+);
+INSERT INTO filmes (titulo, diretor, genero, ano_lancamento, classificacao_indicativa, duracao_minutos)
+VALUES ('O Poderoso Chefão', 'Francis Ford Coppola', 'Crime', 1972, '14 anos', 175);
