@@ -11,26 +11,9 @@ namespace Gerenciamento_de_Filmes_de_Locadora
     {
         static void Main(string[] args)
         {
-            //MySqlConnection conexao = ConexaoDB.fazconexao(); //faz a conexão com a classe do banco de dados
-
-            //try
-            //{
-            //    conexao.Open();
-            //    Console.WriteLine("Conectado");
-            //    MySqlCommand cmd = new MySqlCommand();
-            //    cmd.Connection = conexao;
-            //    cmd.CommandText = "Select * from filmes limit 1";
-            //    MySqlDataReader dr = cmd.ExecuteReader();
-
-            //}
-            //catch (MySqlException erro)
-            //{
-            //    Console.WriteLine(erro.Message);
-            //    return;
-            //}
-            //Utils utils = new Utils();
-            //Console.WriteLine(utils.ObterAnoAtual());
-            //Console.WriteLine(utils.ConfirmarOperacao());
+            //FilmeDAO.InserirFilme("teste","kayo","Ação",2025,"18 anos",120);
+            
+            
             
         }
     }
