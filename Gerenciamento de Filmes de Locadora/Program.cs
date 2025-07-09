@@ -28,9 +28,9 @@ namespace Gerenciamento_de_Filmes_de_Locadora
             //    Console.WriteLine(erro.Message);
             //    return;
             //}
-            Utils utils = new Utils();
-            Console.WriteLine(utils.ObterAnoAtual());
-            Console.WriteLine(utils.ConfirmarOperacao());
+            //Utils utils = new Utils();
+            //Console.WriteLine(utils.ObterAnoAtual());
+            //Console.WriteLine(utils.ConfirmarOperacao());
             
         }
     }
