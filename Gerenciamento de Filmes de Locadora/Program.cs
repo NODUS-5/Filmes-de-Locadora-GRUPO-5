@@ -13,6 +13,7 @@ namespace Gerenciamento_de_Filmes_de_Locadora
         {
             //FilmeDAO.InserirFilme("teste","kayo","Ação",2025,"18 anos",120);
             //FilmeDAO.ListarTodosFilmes();
+            // FilmeDAO.DeletarFilme(2);
             
             
             
