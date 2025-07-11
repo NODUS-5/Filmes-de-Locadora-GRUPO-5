@@ -7,7 +7,7 @@ using MySql.Data.MySqlClient;
 
 namespace Gerenciamento_de_Filmes_de_Locadora
 {
-    public class FilmeDAO
+    public class FilmeDAO //Filme Dados Acesso Organização: Executa as operações no banco de dados.
     {
         public static void InserirFilme(string titulo, string diretor,string genero,int anoLancamento,string classiIndicativa,int duracaoMinutos) //método para inserir o filme recebendo todos os parâmetros necessários
         {
@@ -54,6 +54,27 @@ namespace Gerenciamento_de_Filmes_de_Locadora
                     Console.WriteLine("Nenhum filme encontrado!");
                 }
                 dr.Close();
+                cn.Close();
+
+
+
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine("Impossível conectar.\n" + ex.Message);
+            }
+        }
+        public static void DeletarFilme(int id)
+        {
+            MySqlConnection cn = ConexaoDB.fazconexao();
+            try
+            {
+                cn.Open();
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = cn;
+                cmd.CommandText = "delete from filmes where id= " + id;
+                cmd.ExecuteNonQuery();
+                Console.WriteLine("Filme deletado com sucesso!! ");
                 cn.Close();
 
 
