@@ -85,6 +85,27 @@ namespace Gerenciamento_de_Filmes_de_Locadora
                 Console.WriteLine("Impossível conectar.\n" + ex.Message);
             }
         }
+        public static void AtualizarCampoFilme(int id, string campo, string novoValor, bool seNumero = false) //seNumero= verificação se é numero ou não, se estiver true o novo valor será sem ""
+        {
+            MySqlConnection cn = ConexaoDB.fazconexao();
+            try
+            {
+                cn.Open();
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = cn;
+                string valorFormatado = seNumero ? novoValor : $"'{novoValor}'";
+                cmd.CommandText = $"update filmes set {campo} = {valorFormatado} where id = {id}";
+                cmd.ExecuteNonQuery();
+                Console.WriteLine("Campo atualizado com sucesso!");
+                cn.Close();
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine("Erro ao atualizar o filme.\n" + ex.Message);
+            }
+        }
+
+
 
     }
 }
