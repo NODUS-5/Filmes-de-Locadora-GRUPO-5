@@ -11,27 +11,20 @@ namespace Gerenciamento_de_Filmes_de_Locadora
     {
         static void Main(string[] args)
         {
-            //MySqlConnection conexao = ConexaoDB.fazconexao(); //faz a conexão com a classe do banco de dados
+            //FilmeDAO.InserirFilme("teste","kayo","Ação",2025,"18 anos",120);
+            //FilmeDAO.ListarTodosFilmes();
+            // FilmeDAO.DeletarFilme(2);
+            //FilmeDAO.AtualizarCampoFilme(3, "titulo", "O Chefão Recarregado");//Alterar o título (tipo texto)
+            //FilmeDAO.AtualizarCampoFilme(3, "duracao_minutos", "190", true);//Alterar duração (tipo número)
+            //FilmeDAO.ListarTodosFilmes();
+            //FilmeDAO.BuscarPorId(1);
+            FilmeDAO.ListarPorFiltro("genero", "Ação");
+            FilmeDAO.ListarPorFiltro("ano_lancamento", "2023", true);
 
-            //try
-            //{
-            //    conexao.Open();
-            //    Console.WriteLine("Conectado");
-            //    MySqlCommand cmd = new MySqlCommand();
-            //    cmd.Connection = conexao;
-            //    cmd.CommandText = "Select * from filmes limit 1";
-            //    MySqlDataReader dr = cmd.ExecuteReader();
 
-            //}
-            //catch (MySqlException erro)
-            //{
-            //    Console.WriteLine(erro.Message);
-            //    return;
-            //}
-            Utils utils = new Utils();
-            Console.WriteLine(utils.ObterAnoAtual());
-            Console.WriteLine(utils.ConfirmarOperacao());
-            
+
+
+
         }
     }
 }
