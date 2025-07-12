@@ -17,7 +17,11 @@ namespace Gerenciamento_de_Filmes_de_Locadora
             //FilmeDAO.AtualizarCampoFilme(3, "titulo", "O Chefão Recarregado");//Alterar o título (tipo texto)
             //FilmeDAO.AtualizarCampoFilme(3, "duracao_minutos", "190", true);//Alterar duração (tipo número)
             //FilmeDAO.ListarTodosFilmes();
-            FilmeDAO.BuscarPorId(1);
+            //FilmeDAO.BuscarPorId(1);
+            FilmeDAO.ListarPorFiltro("genero", "Ação");
+            FilmeDAO.ListarPorFiltro("ano_lancamento", "2023", true);
+
+
 
 
 

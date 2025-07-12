@@ -140,6 +140,42 @@ namespace Gerenciamento_de_Filmes_de_Locadora
             }
 
         }
+        public static void ListarPorFiltro(string campo, string valor, bool seNumero = false)
+        {
+            MySqlConnection cn = ConexaoDB.fazconexao();
+            try
+            {
+                cn.Open();
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = cn;
+                string valorFormatado = seNumero ? valor : $"'{valor}'";
+                cmd.CommandText = $"select titulo, diretor, genero, ano_lancamento, classificacao_indicativa, duracao_minutos from filmes where {campo} = {valorFormatado}";
+                MySqlDataReader dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    Console.WriteLine("{0,-30} {1,-25} {2,-15} {3,-20} {4,-20} {5,-10}",
+                        "Título", "Diretor", "Gênero", "Ano de Lançamento", "Classificação", "Duração em minutos");
+                    while (dr.Read())
+                    {
+                        Console.WriteLine("{0,-30} {1,-25} {2,-15} {3,-20} {4,-20} {5,-10}",
+                            dr["titulo"], dr["diretor"], dr["genero"], dr["ano_lancamento"],
+                            dr["classificacao_indicativa"], dr["duracao_minutos"]);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Nenhum filme encontrado com esse filtro!");
+                }
+                dr.Close();
+                cn.Close();
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine("Erro ao listar os filmes.\n" + ex.Message);
+            }
+        }
+
+
 
 
 
