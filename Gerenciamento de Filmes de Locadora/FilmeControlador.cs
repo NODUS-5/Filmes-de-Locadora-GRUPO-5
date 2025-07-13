@@ -68,7 +68,12 @@ namespace Gerenciamento_de_Filmes_de_Locadora
         }
         public static void BuscarFilmesPor()
         {
-
+            while (true)
+            { 
+                
+                break;
+            
+            }
         }
     }
 }

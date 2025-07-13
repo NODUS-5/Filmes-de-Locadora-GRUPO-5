@@ -36,23 +36,26 @@ namespace Gerenciamento_de_Filmes_de_Locadora
                 cn.Open();
                 MySqlCommand cmd = new MySqlCommand();
                 cmd.Connection = cn;
-                cmd.CommandText = "select titulo, diretor, genero, ano_lancamento, classificacao_indicativa, duracao_minutos from filmes";
+                cmd.CommandText = "select id, titulo, diretor, genero, ano_lancamento, classificacao_indicativa, duracao_minutos from filmes";
                 MySqlDataReader dr = cmd.ExecuteReader();
+
                 if (dr.HasRows)
                 {
-                    Console.WriteLine("\n{0,-30} {1,-25} {2,-15} {3,-20} {4,-20} {5,-10}", //{indice, espaçameto}
-                        "Título", "Diretor", "Gênero", "Ano de Lançamento", "Classificação", "Duração em minutos");
+                    Console.WriteLine("\n{0,-5} {1,-30} {2,-25} {3,-15} {4,-20} {5,-20} {6,-10}",
+                        "ID", "Título", "Diretor", "Gênero", "Ano de Lançamento", "Classificação", "Duração");
 
                     while (dr.Read())
                     {
-                        Console.WriteLine("\n{0,-30} {1,-25} {2,-15} {3,-20} {4,-20} {5,-10}", dr["titulo"], dr["diretor"], dr["genero"], dr["ano_lancamento"],
+                        Console.WriteLine("{0,-5} {1,-30} {2,-25} {3,-15} {4,-20} {5,-20} {6,-10}",
+                            dr["id"], dr["titulo"], dr["diretor"], dr["genero"], dr["ano_lancamento"],
                             dr["classificacao_indicativa"], dr["duracao_minutos"]);
                     }
                 }
-                else 
+                else
                 {
                     Console.WriteLine("Nenhum filme encontrado!");
                 }
+
                 dr.Close();
                 cn.Close();
 
