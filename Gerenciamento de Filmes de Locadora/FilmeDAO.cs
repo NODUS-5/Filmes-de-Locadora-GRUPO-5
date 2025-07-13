@@ -40,12 +40,12 @@ namespace Gerenciamento_de_Filmes_de_Locadora
                 MySqlDataReader dr = cmd.ExecuteReader();
                 if (dr.HasRows)
                 {
-                    Console.WriteLine("{0,-30} {1,-25} {2,-15} {3,-20} {4,-20} {5,-10}", //{indice, espaçameto}
+                    Console.WriteLine("\n{0,-30} {1,-25} {2,-15} {3,-20} {4,-20} {5,-10}", //{indice, espaçameto}
                         "Título", "Diretor", "Gênero", "Ano de Lançamento", "Classificação", "Duração em minutos");
 
                     while (dr.Read())
                     {
-                        Console.WriteLine("{0,-30} {1,-25} {2,-15} {3,-20} {4,-20} {5,-10}", dr["titulo"], dr["diretor"], dr["genero"], dr["ano_lancamento"],
+                        Console.WriteLine("\n{0,-30} {1,-25} {2,-15} {3,-20} {4,-20} {5,-10}", dr["titulo"], dr["diretor"], dr["genero"], dr["ano_lancamento"],
                             dr["classificacao_indicativa"], dr["duracao_minutos"]);
                     }
                 }

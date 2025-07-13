@@ -20,13 +20,10 @@ namespace Gerenciamento_de_Filmes_de_Locadora
     {
         public static void AdicionarFilme()
         {
-            //int anoAtual= Utils.ObterAnoAtual();
-            
             while (true) {
                 try
                 {
                     Console.Write("\nDigite o titulo do filme: "); string tituloFilme = Console.ReadLine();
-                    if (tituloFilme == "") { Console.WriteLine("foi"); }
                     Console.Write("\nDigite o diretor do filme: "); string diretorFilme = Console.ReadLine();
                     Console.Write("\nDigite o genero do filme: "); string generoFilme = Console.ReadLine();
                     int anoLancamento;
@@ -54,9 +51,6 @@ namespace Gerenciamento_de_Filmes_de_Locadora
                     }
                 }
                 catch (Exception) { Console.WriteLine("Digite um valor válido!!"); }
-                
-
-
             }
         }
         public static void EditarFilme()
@@ -69,7 +63,8 @@ namespace Gerenciamento_de_Filmes_de_Locadora
         }
         public static void ListarTodosFilmes()
         {
-
+            Console.WriteLine("\nLista com todos os filmes (expandir a tela para melhor visualização):");
+            FilmeDAO.ListarTodosFilmes();
         }
         public static void BuscarFilmesPor()
         {
