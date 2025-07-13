@@ -11,20 +11,20 @@ namespace Gerenciamento_de_Filmes_de_Locadora
     {
         static void Main(string[] args)
         {
-            //FilmeDAO.InserirFilme("teste","kayo","Ação",2025,"18 anos",120);
-            //FilmeDAO.ListarTodosFilmes();
-            // FilmeDAO.DeletarFilme(2);
-            //FilmeDAO.AtualizarCampoFilme(3, "titulo", "O Chefão Recarregado");//Alterar o título (tipo texto)
-            //FilmeDAO.AtualizarCampoFilme(3, "duracao_minutos", "190", true);//Alterar duração (tipo número)
-            //FilmeDAO.ListarTodosFilmes();
-            //FilmeDAO.BuscarPorId(1);
-            FilmeDAO.ListarPorFiltro("genero", "Ação");
-            FilmeDAO.ListarPorFiltro("ano_lancamento", "2023", true);
-
-
-
-
-
+            int opcao;
+            do {
+                try {
+                    Console.WriteLine("-----Menu-----");
+                    Console.WriteLine("1 - Adicionar Filme\n2- Editar Filme\n3 - Remover Filme\n4 - Listar filmes\n 5 - Buscar por filtro\n6 - Sair do Sistema ");
+                    Console.Write("Digite a opção desejada: ");opcao= int.Parse(Console.ReadLine());
+                
+                
+                } catch (Exception ex) {
+                    Console.WriteLine("Digite um valor válido!!");
+                }
+            
+            
+            }while (true);
         }
     }
 }

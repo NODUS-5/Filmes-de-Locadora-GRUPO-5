@@ -28,7 +28,7 @@ namespace Gerenciamento_de_Filmes_de_Locadora
                 Console.WriteLine("Impossível conectar.\n" + ex.Message);
             }
         }
-        public static void ListarTodosFilmes()
+        public static void ListarTodosFilmes() //método para listar todos os filmes 
         {
             MySqlConnection cn = ConexaoDB.fazconexao();
             try
@@ -64,7 +64,7 @@ namespace Gerenciamento_de_Filmes_de_Locadora
                 Console.WriteLine("Impossível conectar.\n" + ex.Message);
             }
         }
-        public static void DeletarFilme(int id)
+        public static void DeletarFilme(int id) //método para deletar o filme por id
         {
             MySqlConnection cn = ConexaoDB.fazconexao();
             try
@@ -85,7 +85,8 @@ namespace Gerenciamento_de_Filmes_de_Locadora
                 Console.WriteLine("Impossível conectar.\n" + ex.Message);
             }
         }
-        public static void AtualizarCampoFilme(int id, string campo, string novoValor, bool seNumero = false) //seNumero= verificação se é numero ou não, se estiver true o novo valor será sem ""
+        public static void AtualizarCampoFilme(int id, string campo, string novoValor, bool seNumero = false) //método para alterar um campo espeífico.
+            //seNumero= verificação se é numero ou não, se estiver true o novo valor será sem ""
         {
             MySqlConnection cn = ConexaoDB.fazconexao();
             try
@@ -104,7 +105,7 @@ namespace Gerenciamento_de_Filmes_de_Locadora
                 Console.WriteLine("Erro ao atualizar o filme.\n" + ex.Message);
             }
         }
-        public static void BuscarPorId(int id) 
+        public static void BuscarPorId(int id) //método para buscar o filme pelo id.
         {
             MySqlConnection cn = ConexaoDB.fazconexao();
             try
@@ -140,7 +141,7 @@ namespace Gerenciamento_de_Filmes_de_Locadora
             }
 
         }
-        public static void ListarPorFiltro(string campo, string valor, bool seNumero = false)
+        public static void ListarPorFiltro(string campo, string valor, bool seNumero = false) //método para listar o filme por campo específico
         {
             MySqlConnection cn = ConexaoDB.fazconexao();
             try
