@@ -25,7 +25,7 @@ namespace Gerenciamento_de_Filmes_de_Locadora
 
             }catch (MySqlException ex)
             {
-                Console.WriteLine("Impossível conectar.\n" + ex.Message);
+                Console.WriteLine("Impossível adicionar filme.\n" + ex.Message);
             }
         }
         public static void ListarTodosFilmes() //método para listar todos os filmes 

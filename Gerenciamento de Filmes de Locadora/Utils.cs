@@ -6,15 +6,17 @@ using System.Threading.Tasks;
 
 namespace Gerenciamento_de_Filmes_de_Locadora
 {
-    internal class Utils //Classe criada com o objetivo de fornecer funcionalidades genéricas e reutilizáveis.
+    public class Utils //Classe criada com o objetivo de fornecer funcionalidades genéricas e reutilizáveis.
     {
         
         private int confirmacaoOperacao;
-        private int anoAtual = DateTime.Now.Year;
+        //public int anoAtual = 
+        public static int anoPrimeiroFilme = 1895;
+        
 
-        public int ObterAnoAtual() //Metodo que retorna o ano corrente para validações.
+        public static int ObterAnoAtual() //Metodo que retorna o ano corrente para validações.
         {
-            return anoAtual;
+            return DateTime.Now.Year;
         }
         public bool ConfirmarOperacao() //Metodo que retorna a confirmação da operação
         {

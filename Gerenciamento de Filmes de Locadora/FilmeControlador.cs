@@ -20,7 +20,44 @@ namespace Gerenciamento_de_Filmes_de_Locadora
     {
         public static void AdicionarFilme()
         {
+            //int anoAtual= Utils.ObterAnoAtual();
+            
+            while (true) {
+                try
+                {
+                    Console.Write("\nDigite o titulo do filme: "); string tituloFilme = Console.ReadLine();
+                    if (tituloFilme == "") { Console.WriteLine("foi"); }
+                    Console.Write("\nDigite o diretor do filme: "); string diretorFilme = Console.ReadLine();
+                    Console.Write("\nDigite o genero do filme: "); string generoFilme = Console.ReadLine();
+                    int anoLancamento;
+                    while (true) {
+                        Console.Write("\nDigite o ano de lançamento do filme: "); anoLancamento = int.Parse(Console.ReadLine());
 
+                        if (anoLancamento > Utils.ObterAnoAtual() || anoLancamento < Utils.anoPrimeiroFilme)
+                        {
+                            Console.WriteLine("O valor do ano de lançamento do filme digitado não é válido, Digite um valor válido.");
+                        }
+                        else {
+                            break;
+                        }
+                    }
+                    Console.Write("\nDigite a classificação indicativa do filme (ex: 14 anos): "); string classIndicativa = Console.ReadLine();
+                    int duracaoFilme;
+                    while (true) {
+                        Console.Write("\n Digite a duração do filme em minutos: "); duracaoFilme = int.Parse(Console.ReadLine());
+                        if (duracaoFilme <= 0) { Console.WriteLine("Por favor, digite um valor maior que 0."); } else { break; }
+                    }
+                    if (tituloFilme == "" || diretorFilme == "" || generoFilme == "" || classIndicativa == "") { Console.WriteLine("Por favor, não deixe o campos em branco."); }
+                    else {
+                        FilmeDAO.InserirFilme(tituloFilme, diretorFilme, generoFilme, anoLancamento, classIndicativa, duracaoFilme);
+                        break;
+                    }
+                }
+                catch (Exception) { Console.WriteLine("Digite um valor válido!!"); }
+                
+
+
+            }
         }
         public static void EditarFilme()
         {
