@@ -66,14 +66,17 @@ namespace Gerenciamento_de_Filmes_de_Locadora
                     Console.WriteLine("Lista de Filmes:");
                     FilmeDAO.BuscarPorId();
                     Console.Write("Digite o id do Filme que deseja deletar: "); int id = int.Parse(Console.ReadLine());
-                    if (id <= 0 || id == null)
+                    if (id <= 0)
                     {
                         Console.WriteLine("Por favor digite um id válido.");
                     }
                     else
                     {
-                        FilmeDAO.DeletarFilme(id);
-                        break;
+                        if (Utils.ConfirmarOperacao()){
+                            FilmeDAO.DeletarFilme(id);
+                            break;
+                        }
+                        else {  break; }
                     }
                     Console.Write("\nDigite o titulo do filme: "); string tituloFilme = Console.ReadLine();
                 }
@@ -89,9 +92,58 @@ namespace Gerenciamento_de_Filmes_de_Locadora
         public static void BuscarFilmesPor()
         {
             while (true)
-            { 
+            {
+                try {
+                    Console.WriteLine("\nFiltros:\n1- Id\n2- Titulo\n3- Diretor\n4- Genero\n5- Ano de Lançamento\n6- Classificação indicativa\n7- Duração do filme");
+                    Console.Write("Digite a opção desejada: "); int opcaoFiltro = int.Parse(Console.ReadLine());
+                    if (opcaoFiltro < 1 || opcaoFiltro > 7)
+                    {
+                        Console.WriteLine("Digite um número entre 1 e 7.");
+                    }
+                    else
+                    {
+                        switch (opcaoFiltro)
+                        {
+                            case 1:
+                                Console.Write("Digite o id para a busca: "); string idFiltro = Console.ReadLine();
+                                FilmeDAO.ListarPorFiltro("id",idFiltro, true);
+                                break;
+                            case 2:
+                                Console.Write("Digite o titulo que deseja buscar: "); string tituloFiltro = Console.ReadLine();
+                                FilmeDAO.ListarPorFiltro("titulo",tituloFiltro);
+                                break;
+                            case 3:
+                                Console.Write("Digite o diretor que deseja buscar: "); string diretorFiltro = Console.ReadLine();
+                                FilmeDAO.ListarPorFiltro("diretor", diretorFiltro);
+                                break;
+                            case 4:
+                                Console.Write("Digite o gênero que deseja buscar: "); string generoFiltro = Console.ReadLine();
+                                FilmeDAO.ListarPorFiltro("genero", generoFiltro);
+                                break;
+                            case 5:
+                                Console.Write("Digite o ano de lançamento para a busca: "); string anoFiltro = Console.ReadLine();
+                                FilmeDAO.ListarPorFiltro("ano_lancamento", anoFiltro, true);
+                                break;
+                            case 6:
+                                Console.Write("Digite a classificação indicativa para a busca: "); string classificacaoFiltro = Console.ReadLine();
+                                FilmeDAO.ListarPorFiltro("classificacao_indicativa", classificacaoFiltro);
+                                break;
+                            case 7:
+                                Console.Write("Digite a duração do filme para a busca (em minutos): "); string duracaoFiltro = Console.ReadLine();
+                                FilmeDAO.ListarPorFiltro("duracao_minutos", duracaoFiltro, true);
+                                break;
+                            default:
+                                Console.WriteLine("Valor digitado não é válido.");
+                                break;
+
+                        }
+                        break;
+                    }
+
+
+                } catch (Exception) { Console.WriteLine("Digite um valor válido!!"); }
+
                 
-                break;
             
             }
         }

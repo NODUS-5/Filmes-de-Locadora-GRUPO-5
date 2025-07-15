@@ -76,12 +76,12 @@ namespace Gerenciamento_de_Filmes_de_Locadora
                 MySqlCommand cmd = new MySqlCommand();
                 cmd.Connection = cn;
                 cmd.CommandText = "delete from filmes where id= " + id;
-                try
-                {
+                //try
+                //{
                     cmd.ExecuteNonQuery();
                     Console.WriteLine("Filme deletado com sucesso!! ");
                     cn.Close();
-                }catch
+                //}catch
 
 
             }

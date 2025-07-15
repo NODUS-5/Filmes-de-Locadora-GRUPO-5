@@ -8,8 +8,7 @@ namespace Gerenciamento_de_Filmes_de_Locadora
 {
     public class Utils //Classe criada com o objetivo de fornecer funcionalidades genéricas e reutilizáveis.
     {
-        
-        private int confirmacaoOperacao;
+       
         //public int anoAtual = 
         public static int anoPrimeiroFilme = 1895;
         
@@ -18,8 +17,9 @@ namespace Gerenciamento_de_Filmes_de_Locadora
         {
             return DateTime.Now.Year;
         }
-        public bool ConfirmarOperacao() //Metodo que retorna a confirmação da operação
+        public static bool ConfirmarOperacao() //Metodo que retorna a confirmação da operação
         {
+            int confirmacaoOperacao;
             while (true)
             {
                 try
