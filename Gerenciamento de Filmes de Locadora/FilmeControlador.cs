@@ -55,12 +55,32 @@ namespace Gerenciamento_de_Filmes_de_Locadora
         }
         public static void EditarFilme()
         {
-
+            FilmeDAO.BuscarPorId();
         }
         public static void RemoverFilme()
         {
-
+            while (true)
+            {
+                try
+                {
+                    Console.WriteLine("Lista de Filmes:");
+                    FilmeDAO.BuscarPorId();
+                    Console.Write("Digite o id do Filme que deseja deletar: "); int id = int.Parse(Console.ReadLine());
+                    if (id <= 0 || id == null)
+                    {
+                        Console.WriteLine("Por favor digite um id válido.");
+                    }
+                    else
+                    {
+                        FilmeDAO.DeletarFilme(id);
+                        break;
+                    }
+                    Console.Write("\nDigite o titulo do filme: "); string tituloFilme = Console.ReadLine();
+                }
+                catch (Exception) { Console.WriteLine("Digite um valor válido!!"); }
+            }
         }
+
         public static void ListarTodosFilmes()
         {
             Console.WriteLine("\nLista com todos os filmes (expandir a tela para melhor visualização):");

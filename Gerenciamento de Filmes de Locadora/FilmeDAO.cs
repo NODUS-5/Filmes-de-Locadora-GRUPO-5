@@ -76,10 +76,12 @@ namespace Gerenciamento_de_Filmes_de_Locadora
                 MySqlCommand cmd = new MySqlCommand();
                 cmd.Connection = cn;
                 cmd.CommandText = "delete from filmes where id= " + id;
-                cmd.ExecuteNonQuery();
-                Console.WriteLine("Filme deletado com sucesso!! ");
-                cn.Close();
-
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                    Console.WriteLine("Filme deletado com sucesso!! ");
+                    cn.Close();
+                }catch
 
 
             }
@@ -108,7 +110,7 @@ namespace Gerenciamento_de_Filmes_de_Locadora
                 Console.WriteLine("Erro ao atualizar o filme.\n" + ex.Message);
             }
         }
-        public static void BuscarPorId(int id) //método para buscar o filme pelo id.
+        public static void BuscarPorId()
         {
             MySqlConnection cn = ConexaoDB.fazconexao();
             try
@@ -116,25 +118,25 @@ namespace Gerenciamento_de_Filmes_de_Locadora
                 cn.Open();
                 MySqlCommand cmd = new MySqlCommand();
                 cmd.Connection = cn;
-                cmd.CommandText = "select * from filmes where id= " + id;
-                cmd.ExecuteNonQuery();
-                Console.WriteLine("Filme Selecionado: \n");
+                cmd.CommandText = "select id, titulo, diretor from filmes";
                 MySqlDataReader dr = cmd.ExecuteReader();
+
+                Console.WriteLine("Filme Selecionado: \n");
+
                 if (dr.HasRows)
                 {
-                    Console.WriteLine("{0,-30} {1,-25} {2,-15} {3,-20} {4,-20} {5,-10}", //{indice, espaçameto}
-                        "Título", "Diretor", "Gênero", "Ano de Lançamento", "Classificação", "Duração em minutos");
+                    Console.WriteLine("{0,-10} {1,-30} {2,-25}", "ID", "Título", "Diretor");
 
                     while (dr.Read())
                     {
-                        Console.WriteLine("{0,-30} {1,-25} {2,-15} {3,-20} {4,-20} {5,-10}", dr["titulo"], dr["diretor"], dr["genero"], dr["ano_lancamento"],
-                            dr["classificacao_indicativa"], dr["duracao_minutos"]);
+                        Console.WriteLine("{0,-10} {1,-30} {2,-25}", dr["id"], dr["titulo"], dr["diretor"]);
                     }
                 }
                 else
                 {
                     Console.WriteLine("Nenhum filme encontrado!");
                 }
+
                 dr.Close();
                 cn.Close();
             }
@@ -142,8 +144,8 @@ namespace Gerenciamento_de_Filmes_de_Locadora
             {
                 Console.WriteLine("Impossível conectar.\n" + ex.Message);
             }
-
         }
+
         public static void ListarPorFiltro(string campo, string valor, bool seNumero = false) //método para listar o filme por campo específico
         {
             MySqlConnection cn = ConexaoDB.fazconexao();
