@@ -41,15 +41,20 @@ namespace Gerenciamento_de_Filmes_de_Locadora
 
                 if (dr.HasRows)
                 {
-                    Console.WriteLine("\n{0,-5} {1,-30} {2,-25} {3,-15} {4,-20} {5,-20} {6,-10}",
-                        "ID", "Título", "Diretor", "Gênero", "Ano de Lançamento", "Classificação", "Duração");
+                    Console.WriteLine("\n{0,-5} {1,-30} {2,-25} {3,-15} {4,-20} {5,-20} {6,-10}","ID", "Título", "Diretor", "Gênero", "Ano de Lançamento", "Classificação", "Duração");
 
                     while (dr.Read())
                     {
                         Console.WriteLine("{0,-5} {1,-30} {2,-25} {3,-15} {4,-20} {5,-20} {6,-10}",
-                            dr["id"], dr["titulo"], dr["diretor"], dr["genero"], dr["ano_lancamento"],
-                            dr["classificacao_indicativa"], dr["duracao_minutos"]);
+                            dr["id"],
+                            dr["titulo"],
+                            dr["diretor"],
+                            dr["genero"],
+                            dr["ano_lancamento"],
+                            dr["classificacao_indicativa"],
+                            dr["duracao_minutos"]);
                     }
+
                 }
                 else
                 {
@@ -180,6 +185,27 @@ namespace Gerenciamento_de_Filmes_de_Locadora
                 Console.WriteLine("Erro ao listar os filmes.\n" + ex.Message);
             }
         }
+        public static bool ExisteId(int id)
+        {
+            bool existe = false;
+            MySqlConnection cn = ConexaoDB.fazconexao();
+            try
+            {
+                cn.Open();
+                string sql = $"select exists(select 1 from filmes where id ={id})";
+                MySqlCommand cmd = new MySqlCommand(sql, cn);
+                int result = Convert.ToInt32(cmd.ExecuteScalar());
+                existe = (result == 1);
+                cn.Close();
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine("Erro ao conectar: " + ex.Message);
+            }
+
+            return existe;
+        }
+
 
 
 
