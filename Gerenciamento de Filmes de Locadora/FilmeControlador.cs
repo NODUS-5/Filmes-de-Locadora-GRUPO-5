@@ -7,16 +7,6 @@ using System.Threading.Tasks;
 namespace Gerenciamento_de_Filmes_de_Locadora
 {
     public class FilmeControlador //Orquestra as operações de filmes.
-
-            //FilmeDAO.InserirFilme("teste","kayo","Ação",2025,"18 anos",120);
-            //FilmeDAO.ListarTodosFilmes();
-            // FilmeDAO.DeletarFilme(2);
-            //FilmeDAO.AtualizarCampoFilme(3, "titulo", "O Chefão Recarregado");//Alterar o título (tipo texto)
-            //FilmeDAO.AtualizarCampoFilme(3, "duracao_minutos", "190", true);//Alterar duração (tipo número)
-            //FilmeDAO.ListarTodosFilmes();
-            //FilmeDAO.BuscarPorId(1);
-            //FilmeDAO.ListarPorFiltro("genero", "Ação");
-            //FilmeDAO.ListarPorFiltro("ano_lancamento", "2023", true);
     {
         public static void AdicionarFilme()
         {
@@ -55,7 +45,71 @@ namespace Gerenciamento_de_Filmes_de_Locadora
         }
         public static void EditarFilme()
         {
-            FilmeDAO.BuscarPorId();
+            while (true)
+            {
+                try 
+                {
+                    Console.WriteLine("\nlista de IDs (Expanda a tela para melhor visualização)");
+                    FilmeDAO.ListarTodosFilmes();
+                    Console.Write("Digite o id do Filme que deseja editar: "); int filmeEditar = int.Parse(Console.ReadLine());
+                    if (filmeEditar <= 0) 
+                    {
+                        Console.WriteLine("Por favor, digite um número maior que zero.");
+                    }else {
+                        if (FilmeDAO.ExisteId(filmeEditar))
+                        {
+                            Console.WriteLine("Campo para alteração:\n1- Titulo\n2- Diretor\n3- Genero\n4- Ano de Lançamento\n5- Classificação indicativa\n6- Duração do filme");
+                            Console.Write("Digite a opção desejada: "); int opcaoCampo = int.Parse(Console.ReadLine());
+                            if (opcaoCampo < 1 || opcaoCampo > 6)
+                            {
+                                Console.WriteLine("Digite um número entre 1 e 7.");
+                            }
+                            else
+                            {
+                                switch (opcaoCampo)
+                                {
+                                    case 1:
+                                        Console.Write("Digite o novo Título: ");
+                                        string novoTitulo = Console.ReadLine();
+                                        if (Utils.ConfirmarOperacao()) { FilmeDAO.AtualizarCampoFilme(filmeEditar, "titulo", novoTitulo); }
+                                        break;
+                                    case 2:
+                                        Console.Write("Digite o novo Diretor: ");
+                                        string novoDiretor = Console.ReadLine();
+                                        if (Utils.ConfirmarOperacao()) { FilmeDAO.AtualizarCampoFilme(filmeEditar, "diretor", novoDiretor); }
+                                        break;
+                                    case 3:
+                                        Console.Write("Digite o novo Gênero: ");
+                                        string novoGenero = Console.ReadLine();
+                                        if (Utils.ConfirmarOperacao()) { FilmeDAO.AtualizarCampoFilme(filmeEditar, "genero", novoGenero); }
+                                        break;
+                                    case 4:
+                                        Console.Write("Digite o novo Ano de Lançamento: ");
+                                        string novoAno = Console.ReadLine();
+                                        if (Utils.ConfirmarOperacao()) { FilmeDAO.AtualizarCampoFilme(filmeEditar, "ano_lancamento", novoAno, true); }
+                                        break;
+                                    case 5:
+                                        Console.Write("Digite a nova Classificação Indicativa: ");
+                                        string novaClassificacao = Console.ReadLine();
+                                        if (Utils.ConfirmarOperacao()) { FilmeDAO.AtualizarCampoFilme(filmeEditar, "classificacao_indicativa", novaClassificacao); }
+                                        break;
+                                    case 6:
+                                        Console.Write("Digite a nova Duração do filme (em minutos): ");
+                                        string novaDuracao = Console.ReadLine();
+                                        if (Utils.ConfirmarOperacao()) { FilmeDAO.AtualizarCampoFilme(filmeEditar, "duracao_minutos", novaDuracao, true); }
+                                        break;
+                                    default:
+                                        Console.WriteLine("Opção inválida. Por favor, escolha uma das opções do menu.");
+                                        break;
+                                }
+                                break;
+                            }
+                        }
+                        else { Console.WriteLine("Por favor, digite um id existente."); }
+                    }
+                } catch (Exception) { Console.WriteLine("O valor digitado não é válido!"); }
+            }
+            
         }
         public static void RemoverFilme()
         {
@@ -72,11 +126,15 @@ namespace Gerenciamento_de_Filmes_de_Locadora
                     }
                     else
                     {
-                        if (Utils.ConfirmarOperacao()){
-                            FilmeDAO.DeletarFilme(id);
-                            break;
-                        }
-                        else {  break; }
+                        if (FilmeDAO.ExisteId(id))
+                        {
+                            if (Utils.ConfirmarOperacao())
+                            {
+                                FilmeDAO.DeletarFilme(id);
+                                break;
+                            }
+                            else { break; }
+                        } else { Console.WriteLine("Por favor, digite um id existente."); }
                     }
                     Console.Write("\nDigite o titulo do filme: "); string tituloFilme = Console.ReadLine();
                 }
@@ -135,16 +193,10 @@ namespace Gerenciamento_de_Filmes_de_Locadora
                             default:
                                 Console.WriteLine("Valor digitado não é válido.");
                                 break;
-
                         }
                         break;
                     }
-
-
                 } catch (Exception) { Console.WriteLine("Digite um valor válido!!"); }
-
-                
-            
             }
         }
     }
