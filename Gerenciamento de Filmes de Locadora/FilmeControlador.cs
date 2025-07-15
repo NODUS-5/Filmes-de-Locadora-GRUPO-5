@@ -94,7 +94,7 @@ namespace Gerenciamento_de_Filmes_de_Locadora
             while (true)
             {
                 try {
-                    Console.WriteLine("\nFiltros:\n1- Id\n2- Titulo\n3- Diretor\n4- Genero\n5- Ano de Lançamento\n6- Classificação indicativa\n7- Duração do filme");
+                    Console.WriteLine("\nFiltrar por:\n1- Id\n2- Titulo\n3- Diretor\n4- Genero\n5- Ano de Lançamento\n6- Classificação indicativa\n7- Duração do filme");
                     Console.Write("Digite a opção desejada: "); int opcaoFiltro = int.Parse(Console.ReadLine());
                     if (opcaoFiltro < 1 || opcaoFiltro > 7)
                     {
