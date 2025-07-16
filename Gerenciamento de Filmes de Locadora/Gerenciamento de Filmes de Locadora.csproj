@@ -96,6 +96,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConexaoDB.cs" />
+    <Compile Include="FilmeControlador.cs" />
     <Compile Include="FilmeDAO.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
