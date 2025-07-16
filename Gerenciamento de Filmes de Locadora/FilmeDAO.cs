@@ -17,7 +17,7 @@ namespace Gerenciamento_de_Filmes_de_Locadora
                 cn.Open();
                 MySqlCommand cmd = new MySqlCommand();
                 cmd.Connection = cn;
-                cmd.CommandText = "INSERT INTO filmes (titulo, diretor, genero, ano_lancamento, classificacao_indicativa, duracao_minutos) VALUES ('"+titulo+"','"+diretor+"','"+genero+ "',"+anoLancamento+ ",'"+classiIndicativa+ "',"+duracaoMinutos+")";
+                cmd.CommandText = "insert into filmes (titulo, diretor, genero, ano_lancamento, classificacao_indicativa, duracao_minutos) VALUES ('"+titulo+"','"+diretor+"','"+genero+ "',"+anoLancamento+ ",'"+classiIndicativa+ "',"+duracaoMinutos+")";
                 cmd.ExecuteNonQuery();
                 cn.Close();
                 Console.WriteLine("Filme inserido com sucesso!!");
@@ -41,7 +41,7 @@ namespace Gerenciamento_de_Filmes_de_Locadora
 
                 if (dr.HasRows)
                 {
-                    Console.WriteLine("\n{0,-5} {1,-30} {2,-25} {3,-15} {4,-20} {5,-20} {6,-10}","ID", "Título", "Diretor", "Gênero", "Ano de Lançamento", "Classificação", "Duração");
+                    Console.WriteLine("\n{0,-5} {1,-30} {2,-25} {3,-15} {4,-20} {5,-20} {6,-10}","ID", "Título", "Diretor", "Gênero", "Ano de Lançamento", "Classificação", "Duração"); //{0,-5} -> primeiro número é o indice e o segundo é a distancia que vai se enquadrar
 
                     while (dr.Read())
                     {
@@ -63,9 +63,6 @@ namespace Gerenciamento_de_Filmes_de_Locadora
 
                 dr.Close();
                 cn.Close();
-
-
-
             }
             catch (MySqlException ex)
             {
@@ -81,12 +78,9 @@ namespace Gerenciamento_de_Filmes_de_Locadora
                 MySqlCommand cmd = new MySqlCommand();
                 cmd.Connection = cn;
                 cmd.CommandText = "delete from filmes where id= " + id;
-                //try
-                //{
-                    cmd.ExecuteNonQuery();
-                    Console.WriteLine("Filme deletado com sucesso!! ");
-                    cn.Close();
-                //}catch
+                cmd.ExecuteNonQuery();
+                Console.WriteLine("Filme deletado com sucesso!! ");
+                cn.Close();
 
 
             }
@@ -104,7 +98,7 @@ namespace Gerenciamento_de_Filmes_de_Locadora
                 cn.Open();
                 MySqlCommand cmd = new MySqlCommand();
                 cmd.Connection = cn;
-                string valorFormatado = seNumero ? novoValor : $"'{novoValor}'";
+                string valorFormatado = seNumero ? novoValor : $"'{novoValor}'"; // verificação se é número ou não, se for numero vai ser inserido entre ''
                 cmd.CommandText = $"update filmes set {campo} = {valorFormatado} where id = {id}";
                 cmd.ExecuteNonQuery();
                 Console.WriteLine("Campo atualizado com sucesso!");
@@ -130,7 +124,7 @@ namespace Gerenciamento_de_Filmes_de_Locadora
 
                 if (dr.HasRows)
                 {
-                    Console.WriteLine("{0,-10} {1,-30} {2,-25}", "ID", "Título", "Diretor");
+                    Console.WriteLine("{0,-10} {1,-30} {2,-25}", "ID", "Título", "Diretor");  //{0,-5} -> primeiro número é o indice e o segundo é a distancia que vai se enquadrar
 
                     while (dr.Read())
                     {
@@ -192,10 +186,10 @@ namespace Gerenciamento_de_Filmes_de_Locadora
             try
             {
                 cn.Open();
-                string sql = $"select exists(select 1 from filmes where id ={id})";
-                MySqlCommand cmd = new MySqlCommand(sql, cn);
-                int result = Convert.ToInt32(cmd.ExecuteScalar());
-                existe = (result == 1);
+                string sql = $"select exists(select 1 from filmes where id ={id})"; //verificação no banco de dados se existe o id
+                MySqlCommand cmd = new MySqlCommand(sql, cn); 
+                int result = Convert.ToInt32(cmd.ExecuteScalar()); //converte a resposta do cmd(objeto) para int, 0 ou 1
+                existe = (result == 1); //true ou false
                 cn.Close();
             }
             catch (MySqlException ex)

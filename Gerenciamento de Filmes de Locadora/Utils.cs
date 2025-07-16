@@ -10,12 +10,12 @@ namespace Gerenciamento_de_Filmes_de_Locadora
     {
        
         //public int anoAtual = 
-        public static int anoPrimeiroFilme = 1895;
-        
+        public static int anoPrimeiroFilme = 1895; //ano do primeiro filme de acordo com wikipedia "História do cinema"
+
 
         public static int ObterAnoAtual() //Metodo que retorna o ano corrente para validações.
         {
-            return DateTime.Now.Year;
+            return DateTime.Now.Year; //retorna esoecificamente o ano atual
         }
         public static bool ConfirmarOperacao() //Metodo que retorna a confirmação da operação
         {
