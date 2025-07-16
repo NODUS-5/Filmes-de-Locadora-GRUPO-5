@@ -18,18 +18,14 @@ Este projeto é uma aplicação de console desenvolvida em **C#**, com foco em s
 
 ## ✨ Funcionalidades
 
-- **Gerenciamento de Filmes:**
-  - [✔️] Incluir novos filmes no acervo.
-  - [✔️] Alterar informações de filmes existentes.
-  - [✔️] Excluir filmes do catálogo.
-  - [✔️] Listar todos os filmes cadastrados.
+-   **Gerenciamento Completo de Filmes:**
+    -   [✔️] Incluir novos filmes no acervo.
+    -   [✔️] Alterar informações de filmes existentes (por campo).
+    -   [✔️] Excluir filmes do catálogo por ID.
+    -   [✔️] Listar todos os filmes cadastrados de forma organizada.
 
-- **Busca e Filtros:**
-  - [✔️] Pesquisar filmes por Título, Gênero, Ano de Lançamento e Classificação Indicativa.
-
-- **Relatórios:**
-  - [✔️] Gerar um relatório com todos os filmes ordenados por título.
-  - [✔️] Gerar um relatório de filmes filtrados por gênero.
+-   **Busca e Filtros Detalhados:**
+    -   [✔️] Pesquisar filmes por **ID, Título, Diretor, Gênero, Ano de Lançamento, Classificação Indicativa e Duração**.
 
 ---
 
