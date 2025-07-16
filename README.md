@@ -1,6 +1,6 @@
 # 🎬 Sistema de Gerenciamento de Filmes de Locadora
 
-> **Status:** Em Desenvolvimento 🚧
+> **Status:** Concluído ✅
 
 ## 🏫 Informações Acadêmicas
 
